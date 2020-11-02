@@ -29,11 +29,11 @@ def xor(inp, key, mode):
 
     if mode == "human":
         for i in range(length):
-            output = output + chr(ord(inp[i]) ^ ord(key))
+            output = output + chr(ord(inp[i]) ^ ord(key[i%len(key)]))
     
     if mode == "numOut":
         for i in range(length):
-            output = output + (str(hex(ord(inp[i]) ^ ord(key)))[-2:] + " ")
+            output = output + (str(hex(ord(inp[i]) ^ ord(key[i%len(key)])))[-2:] + " ")
     return output
 
 print(xor(inp,key,mode))
